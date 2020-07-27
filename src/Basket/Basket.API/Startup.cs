@@ -1,3 +1,7 @@
+using Basket.API.Data;
+using Basket.API.Data.Interfaces;
+using Basket.API.Repositories;
+using Basket.API.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +32,13 @@ namespace Basket.API
                 var configuration = ConfigurationOptions.Parse(Configuration.GetConnectionString("Redis"), true);
                 return ConnectionMultiplexer.Connect(configuration);
             });
+
+            #endregion
+
+            #region Project Dependencies
+
+            services.AddTransient<IBasketContext, BasketContext>();
+            services.AddTransient<IBasketRespositoy, BasketRepository>();
 
             #endregion
         }
