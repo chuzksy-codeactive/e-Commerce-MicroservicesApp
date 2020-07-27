@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Basket.API.Repositories
 {
-    public class BasketRepository : IBasketRespositoy
+    public class BasketRepository : IBasketRepository
     {
         private readonly IBasketContext _context;
 

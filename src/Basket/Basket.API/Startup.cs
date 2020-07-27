@@ -38,7 +38,7 @@ namespace Basket.API
             #region Project Dependencies
 
             services.AddTransient<IBasketContext, BasketContext>();
-            services.AddTransient<IBasketRespositoy, BasketRepository>();
+            services.AddTransient<IBasketRepository, BasketRepository>();
 
             #endregion
         }

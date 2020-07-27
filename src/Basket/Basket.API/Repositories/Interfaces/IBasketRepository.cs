@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Basket.API.Repositories.Interfaces
 {
-    public interface IBasketRespositoy
+    public interface IBasketRepository
     {
         Task<BasketCart> GetBasket(string userName);
         Task<BasketCart> UpdateBasket(BasketCart basket);
