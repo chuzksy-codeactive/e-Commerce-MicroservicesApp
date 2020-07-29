@@ -4,7 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Ordering.Core.Repositories;
+using Ordering.Core.Repositories.Base;
 using Ordering.Infrastructure.Data;
+using Ordering.Infrastructure.Repository;
+using Ordering.Infrastructure.Repository.Base;
 
 namespace Ordering.API
 {
@@ -31,6 +35,15 @@ namespace Ordering.API
             // use real database
             services.AddDbContext<OrderContext>(c =>
                 c.UseSqlServer(Configuration.GetConnectionString("OrderConnection"))); // we made singleton this in order to resolve in mediatR when consuming Rabbit
+
+            #endregion
+
+            #region Project Dependencies
+
+            // Add Infrastructure Layer
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IOrderRepository), typeof(OrderRepository));
+            services.AddTransient<IOrderRepository, OrderRepository>(); // we made transient this in order to resolve in mediatR when consuming Rabbit
 
             #endregion
 
