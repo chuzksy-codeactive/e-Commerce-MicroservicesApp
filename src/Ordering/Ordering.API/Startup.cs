@@ -1,14 +1,18 @@
+using AutoMapper;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Ordering.Application.Handlers;
 using Ordering.Core.Repositories;
 using Ordering.Core.Repositories.Base;
 using Ordering.Infrastructure.Data;
 using Ordering.Infrastructure.Repository;
 using Ordering.Infrastructure.Repository.Base;
+using System.Reflection;
 
 namespace Ordering.API
 {
@@ -45,6 +49,11 @@ namespace Ordering.API
             services.AddScoped(typeof(IOrderRepository), typeof(OrderRepository));
             services.AddTransient<IOrderRepository, OrderRepository>(); // we made transient this in order to resolve in mediatR when consuming Rabbit
 
+            // Add AutoMapper
+            services.AddAutoMapper(typeof(Startup));
+
+            // Add MediatR
+            services.AddMediatR(typeof(CheckoutOrderHandler).GetTypeInfo().Assembly);
             #endregion
 
         }
