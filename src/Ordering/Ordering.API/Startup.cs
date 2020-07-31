@@ -56,6 +56,15 @@ namespace Ordering.API
             services.AddMediatR(typeof(CheckoutOrderHandler).GetTypeInfo().Assembly);
             #endregion
 
+            #region Swagger Dependencies
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Order API", Version = "v1" });
+            });
+
+            #endregion
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +82,12 @@ namespace Ordering.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Order API V1");
             });
         }
     }
