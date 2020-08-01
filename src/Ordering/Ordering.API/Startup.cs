@@ -91,7 +91,7 @@ namespace Ordering.API
                 return new RabbitMQConnection(factory);
             });
 
-            services.AddSingleton<EventBusRabbitMQProducer>();
+            services.AddSingleton<EventBusRabbitMQConsumer>();
 
             #endregion
 
