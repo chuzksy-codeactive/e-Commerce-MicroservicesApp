@@ -10,6 +10,9 @@ services:
     rabbitmq:
         image: rabbitmq:3-management
 
+    orderdb:
+        image: mcr.microsoft.com/mssql/server:2019-latest 
+
     catalog.api:
         image: ${DOCKER_REGISTRY-}catalogapi
 
@@ -23,4 +26,11 @@ services:
         build:
             context: .
             dockerfile: src/Basket/Basket.API/Dockerfile
+
+
+    ordering.api:
+        image: ${DOCKER_REGISTRY-}orderingapi
+        build:
+            context: .
+            dockerfile: src/Ordering/Ordering.API/Dockerfile
 

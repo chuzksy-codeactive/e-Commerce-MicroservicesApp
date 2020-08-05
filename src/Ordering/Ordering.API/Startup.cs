@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Ordering.API.Extensions;
 using Ordering.API.RabbitMQ;
 using Ordering.Application.Handlers;
 using Ordering.Core.Repositories;
@@ -43,7 +44,7 @@ namespace Ordering.API
 
             // use real database
             services.AddDbContext<OrderContext>(c =>
-                c.UseSqlServer(Configuration.GetConnectionString("OrderConnection"))); // we made singleton this in order to resolve in mediatR when consuming Rabbit
+                c.UseSqlServer(Configuration.GetConnectionString("OrderConnection")), ServiceLifetime.Singleton); // we made singleton this in order to resolve in mediatR when consuming Rabbit
 
             #endregion
 
@@ -59,14 +60,6 @@ namespace Ordering.API
 
             // Add MediatR
             services.AddMediatR(typeof(CheckoutOrderHandler).GetTypeInfo().Assembly);
-            #endregion
-
-            #region Swagger Dependencies
-
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Order API", Version = "v1" });
-            });
 
             #endregion
 
@@ -96,6 +89,14 @@ namespace Ordering.API
 
             #endregion
 
+            #region Swagger Dependencies
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Order API", Version = "v1" });
+            });
+
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
