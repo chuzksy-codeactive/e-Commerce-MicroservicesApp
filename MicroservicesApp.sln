@@ -31,7 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Application", "src
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{1588CFB0-316E-43FD-B8C1-908477E59469}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OceletAPIGateway", "src\ApiGateway\OceletAPIGateway\OceletAPIGateway.csproj", "{71215C87-029A-43A9-9430-924497C2907C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OceletAPIGateway", "src\ApiGateway\OceletAPIGateway\OceletAPIGateway.csproj", "{71215C87-029A-43A9-9430-924497C2907C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{4E0654D5-185D-4CE0-B5C0-67D0D85A04F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspnetRunBasics", "src\WebApp\AspnetRunBasics\AspnetRunBasics.csproj", "{F29DC8F0-AC02-491C-8277-9F443DB8F484}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +79,10 @@ Global
 		{71215C87-029A-43A9-9430-924497C2907C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71215C87-029A-43A9-9430-924497C2907C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71215C87-029A-43A9-9430-924497C2907C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F29DC8F0-AC02-491C-8277-9F443DB8F484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F29DC8F0-AC02-491C-8277-9F443DB8F484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F29DC8F0-AC02-491C-8277-9F443DB8F484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F29DC8F0-AC02-491C-8277-9F443DB8F484}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +101,7 @@ Global
 		{8D745D8A-A69C-4FCD-800D-D558CAE875D4} = {7544C648-1B08-42A1-8E1F-425AFB9EC562}
 		{1588CFB0-316E-43FD-B8C1-908477E59469} = {E948DCBE-8437-4D99-A888-CF201CE1591F}
 		{71215C87-029A-43A9-9430-924497C2907C} = {1588CFB0-316E-43FD-B8C1-908477E59469}
+		{F29DC8F0-AC02-491C-8277-9F443DB8F484} = {4E0654D5-185D-4CE0-B5C0-67D0D85A04F7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3CF2E3F3-AB28-4656-8AB1-9F77625705F9}
