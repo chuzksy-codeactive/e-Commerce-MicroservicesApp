@@ -76,3 +76,18 @@ services:
         ports:
             - "8002:80"
 
+
+    oceletapigateway:
+        container_name: oceletapigateway
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+        depends_on:
+            - catalog.api
+            - basket.api
+            - ordering.api
+        volumes:
+            - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets
+            - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https
+        ports:
+            - "7000:80"
+

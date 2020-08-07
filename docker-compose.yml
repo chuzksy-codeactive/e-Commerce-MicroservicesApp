@@ -15,22 +15,25 @@ services:
 
     catalog.api:
         image: ${DOCKER_REGISTRY-}catalogapi
-
         build:
             context: .
             dockerfile: src/Catalog/Catalog.API/Dockerfile
 
     basket.api:
         image: ${DOCKER_REGISTRY-}basketapi
-
         build:
             context: .
             dockerfile: src/Basket/Basket.API/Dockerfile
-
 
     ordering.api:
         image: ${DOCKER_REGISTRY-}orderingapi
         build:
             context: .
             dockerfile: src/Ordering/Ordering.API/Dockerfile
+
+    oceletapigateway:
+        image: ${DOCKER_REGISTRY-}oceletapigateway
+        build:
+            context: .
+            dockerfile: src/ApiGateway/OceletAPIGateway/Dockerfile
 
