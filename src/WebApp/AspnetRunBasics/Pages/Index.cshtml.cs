@@ -31,7 +31,7 @@ namespace AspnetRunBasics.Pages
         {
             var product = await _catalogApi.GetCatalog(productId);
 
-            var userName = "swn";
+            var userName = "chuzksy";
             var basket = await _basketApi.GetBasket(userName);
 
             basket.Items.Add(new BasketItemModel
