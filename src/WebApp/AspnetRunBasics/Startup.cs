@@ -1,3 +1,5 @@
+using AspnetRunBasics.ApiCollection;
+using AspnetRunBasics.ApiCollection.Interfaces;
 using AspnetRunBasics.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,6 +27,18 @@ namespace AspnetRunBasics
             services.Configure<ApiSettings>(Configuration.GetSection(nameof(ApiSettings)));
 
             services.AddSingleton<IApiSettings>(sp => sp.GetRequiredService<IOptions<ApiSettings>>().Value);
+
+            #endregion
+
+            #region Project Dependencies
+
+            // add for httpClient factory
+            services.AddHttpClient();
+
+            // add api dependecy
+            services.AddTransient<ICatalogApi, CatalogApi>();
+            services.AddTransient<IBasketApi, BasketApi>();
+            services.AddTransient<IOrderApi, OrderApi>();
 
             #endregion
 

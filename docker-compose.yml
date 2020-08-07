@@ -37,3 +37,10 @@ services:
             context: .
             dockerfile: src/ApiGateway/OceletAPIGateway/Dockerfile
 
+
+    aspnetrunbasics:
+        image: ${DOCKER_REGISTRY-}aspnetrunbasics
+        build:
+            context: .
+            dockerfile: src/WebApp/AspnetRunBasics/Dockerfile
+
